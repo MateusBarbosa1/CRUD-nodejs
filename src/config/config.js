@@ -9,9 +9,10 @@ app.set('view engine','html');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('views', path.join(__dirname, '../app/views'));
 
-require('../app/routes/read')(app);
-require('../app/routes/create')(app);
-require('../app/routes/delete')(app);
+require('../app/routes/create')(app); // CREATE
+require('../app/routes/read')(app); // READ
+require('../app/routes/update')(app); // UPDATE
+require('../app/routes/delete')(app); // DELETE
 
 
 
