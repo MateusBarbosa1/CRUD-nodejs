@@ -2,7 +2,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 async function createUser(data) {
-    return prisma.users.create({
+    return await prisma.users.create({
         data: {
             username: data.username,
             email: data.email,
@@ -11,10 +11,14 @@ async function createUser(data) {
     });
 }
 async function getUsers() {
-    return prisma.users.findMany();
+    return await prisma.users.findMany();
+}
+async function deleteUser(id) {
+    return await prisma.users.delete({ where: {id: Number(id)} });
 }
 
 module.exports = {
     createUser,
-    getUsers
+    getUsers,
+    deleteUser
 }

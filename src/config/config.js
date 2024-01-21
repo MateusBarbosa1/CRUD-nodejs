@@ -11,6 +11,8 @@ app.set('views', path.join(__dirname, '../app/views'));
 
 require('../app/routes/read')(app);
 require('../app/routes/create')(app);
+require('../app/routes/delete')(app);
+
 
 
 module.exports = app;
